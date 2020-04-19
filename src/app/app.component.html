@@ -5,7 +5,7 @@
   </header>
 
   <div class="m-5">
-    <h3>number of support 7.987.057.735 <i class="fa fa-heart"></i></h3>
+    <h3>number of support {{supportsCount}} <i class="fa fa-heart"></i></h3>
   </div>
 
   <div class="w-100 m-4">
@@ -283,10 +283,20 @@
       </table>
     </form>
   </div>
-  <div class="mx-auto mb-4 w-50">
+  <div class="mx-auto mb-4 w-75">
     <h4>Nice things leaved by</h4>
-    <div class="w-100 border" style="height: 150px">
+    <div class="w-100 border text-left" id="somthingnicearea" style="height: 300px">
+      <div class="p-4 border-bottom" *ngFor="let support of supports">
+        <div class="p-0 m-0" *ngIf="support.payload.doc.data().somethingnice">
+          <span class='flag-icon flag-icon-{{support.payload.doc.data().country.toLowerCase()}}'></span> {{support.payload.doc.data().name}} :
+          <p class="d-inline p-3">{{support.payload.doc.data().somethingnice}}</p>
 
+        </div>
+        </div>
     </div>
+  </div>
+
+  <div class="">
+    <h4>#Stay_Home #Stay_Safe</h4>
   </div>
 </div>
