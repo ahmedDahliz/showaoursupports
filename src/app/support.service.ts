@@ -16,6 +16,6 @@ export class SupportService implements OnInit {
    });
   }
   getSupports() {
-   return this.firestore.collection("supports").snapshotChanges();
+   return this.firestore.collection("supports", ref => ref.orderBy('date')).snapshotChanges();
  }
 }

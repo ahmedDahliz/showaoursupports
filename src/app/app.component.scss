@@ -1,15 +1,129 @@
-body {
-  background: lightgray;
+$defaultColor: antiquewhite;
+$borderColor: #c15d5d;
+@font-face {
+    font-family: "Bathilda";
+    src: url('../assets/fonts/Bathilda.otf');
 }
-
+@font-face {
+    font-family: "Kaibon";
+    src: url('../assets/fonts/Kaibon.otf');
+}
+@font-face {
+    font-family: "Northline";
+    src: url('../assets/fonts/Northline.ttf');
+}
+@font-face {
+    font-family: "Montez-Regular";
+    src: url('../assets/fonts/Montez-Regular.ttf');
+}
+@font-face {
+    font-family: "Queen-of-Camelot";
+    src: url('../assets/fonts/Queen-of-Camelot.otf');
+}
 table {
   td {
-    padding: 10px
+    padding: 10px;
+    font-size: 20px
   }
 }
-
+#header_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 450px;
+  filter: brightness(40%);
+}
+header {
+  border: $borderColor solid 3px;
+  border-radius: 5px;
+  background: $defaultColor;
+  margin: 10px;
+  h1 {
+    font-size: 30px;
+    font-family: "Montez-Regular", sans-serif;
+    margin: 25px;
+  }
+  h4 {
+      font-size: 20px;
+  }
+  h5 {
+      font-size: 15px;
+  }
+  .ty {
+    font-family: "Kaibon", sans-serif;
+    font-weight: bold !important;
+  }
+}
 button[type="submit"] {
   i {
     font-size: 25px;
+  }
+}
+#container {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 190px;
+}
+#doctors_mobile, #cleaners_mobile{
+  width: 100%;
+  height: 200px;
+}
+#cleaners, #doctors {
+  display: none;
+}
+#nbr {
+  font-weight: bold !important;
+  font-size: 1.5rem;
+  font-family: "Queen-of-Camelot", sans-serif;
+}
+#somthingnicearea {
+  overflow-y: scroll;
+  height: 350px;
+  background: $borderColor;
+  border: black solid;
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+
+@media only screen and (min-width: 768px){
+  #cleaners_mobile, #doctors_mobile {
+    display: none;
+  }
+  #cleaners {
+    display: inline;
+    position: absolute;
+    left: -20px;
+    width: 215px;
+    z-index: -1;
+    bottom: 450px;
+  }
+  #doctors {
+    display: inline;
+    position: absolute;
+    right: -20px;
+    width: 215px;
+    z-index: -1;
+  }
+  header {
+    margin: 0 100px;
+    h1 {
+      font-size: 40px;
+    }
+    h4 {
+        font-size: 25px;
+    }
+    h5 {
+        font-size: 20px;
+    }
+    .ty {
+      font-size: 30px !important;
+    }
+  }
+  #nbr {
+    font-size: 3.5rem;
+  }
+  .block {
+    width: 75% !important;
   }
 }

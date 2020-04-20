@@ -1,26 +1,36 @@
-<div class="container text-center">
+<img src="../assets/images/corona.jpg" id="header_img" alt="coronavirus">
+<div class="text-center" id="container">
   <header>
-    <h1>Lets show our support</h1>
-    <h4>To thous who suffer and sicrefice the most for our safty and health durring this global pandamic coused by the CORONAVIRUS </h4>
+    <h1 class="font-weight-bold">Lets show our support</h1>
+    <br>
+    <h4>To those who suffer, and sacrifice the most, for our safety and health, during this global pandemic caused by the CORONAVIRUS</h4>
+    <br>
+    <h5>To the <span class="font-weight-bold">DOCTORS and NURSES</span> who look after patients and infected people</h5>
+    <h5>To the <span class="font-weight-bold">SECURTY AUTHORITIES</span> who try their best to maintain security and order</h5>
+    <h5>To the <span class="font-weight-bold">CLEANERS</span> who risk to keep the streets and places clean and sterile</h5>
+    <h5>To the <span class="font-weight-bold">JOURNALIST</span> who go to the heart of endemic areas and give reliable news</h5>
+    <h5>To <span class="font-weight-bold">ALL</span> who participate directly or indirectly, to fight this virus</h5>
+    <br>
+    <h4  class="font-weight-bold ty" >Thank you</h4>
   </header>
-
-  <div class="m-5">
-    <h3>number of support {{supportsCount}} <i class="fa fa-heart"></i></h3>
+  <img src="../assets/images/doctors_mobile.jpg" alt="doctors" id="doctors_mobile">
+  <img src="../assets/images/doctors.png" alt="doctors" id="doctors">
+  <div class="mt-5 mb-5">
+    <h3 id="nbr">NUMBER OF SUPPORTS {{supportsCount}} <i class="fa fa-heart text-danger"></i></h3>
   </div>
+  <div #toAppend class="w-100 mr-auto">
+    <form #toDelete #support="ngForm" class="mx-auto" action="index.html" (ngSubmit) = "onClickSubmit(support.value)" >
+      <h4>Show your support just by submitting this form.</h4>
 
-  <div class="w-100 m-4">
-    <form #support="ngForm" class="mx-auto" action="index.html" (ngSubmit) = "onClickSubmit(support.value)" >
-      <h4>Show your support just by voting to show them how much we are really gratful</h4>
-      <br>
       <table class="mx-auto">
         <tr>
             <td>Name</td>
-            <td><input type="text" name="name" class="form-control" ngModel></td>
+            <td><input type="text" name="name" class="form-control" required ngModel></td>
         </tr>
         <tr>
             <td><i class="morocco flag"></i> Country</td>
             <td>
-              <select class="custom-select form-control" name="country" ngModel>
+              <select class="custom-select form-control" name="country" required ngModel>
                 	<option value="AF">Afghanistan</option>
                 	<option value="AX">Åland Islands</option>
                 	<option value="AL">Albania</option>
@@ -278,25 +288,31 @@
             <td> <textarea class="form-control" name="somethingnice" rows="3" ngModel></textarea></td>
         </tr>
         <tr>
+          <td colspan="2"><small>None of these fields are required</small></td>
+        </tr>
+        <tr>
           <td colspan="2"><button type="submit" name="button" class="btn btn-danger w-25 m-2"><i class="fas fa-hand-holding-heart"></i></button></td>
         </tr>
       </table>
+
     </form>
   </div>
-  <div class="mx-auto mb-4 w-75">
-    <h4>Nice things leaved by</h4>
-    <div class="w-100 border text-left" id="somthingnicearea" style="height: 300px">
-      <div class="p-4 border-bottom" *ngFor="let support of supports">
-        <div class="p-0 m-0" *ngIf="support.payload.doc.data().somethingnice">
-          <span class='flag-icon flag-icon-{{support.payload.doc.data().country.toLowerCase()}}'></span> {{support.payload.doc.data().name}} :
-          <p class="d-inline p-3">{{support.payload.doc.data().somethingnice}}</p>
-
+  <img src="../assets/images/cleaners_mobile.jpg" alt="cleaners" id="cleaners_mobile">
+  <img src="../assets/images/cleaners.png" alt="cleaners" id="cleaners">
+  <br><br><br>
+  <div class="mx-auto mb-4 w-100 block">
+    <h4>Nice things by you</h4>
+    <div #scrolled class="w-100 border text-left" id="somthingnicearea">
+      <div class="p-2 border-bottom" *ngFor="let support of supports">
+        <div class="p-0 m-0">
+          <span class='flag-icon flag-icon-{{support.payload.doc.data().country.toLowerCase()}}'></span> <strong class="font-weight-bold"> {{support.payload.doc.data().name}}</strong>:
+          <p class="d-inline p-2">{{support.payload.doc.data().somethingnice}}</p>
         </div>
         </div>
     </div>
   </div>
 
   <div class="">
-    <h4>#Stay_Home #Stay_Safe</h4>
+    <h4>#Stay_Home <i class='fas fa-home'></i> #Stay_Safe <i class='fas fa-heart'></i></h4>
   </div>
 </div>
